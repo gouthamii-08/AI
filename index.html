@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRA | Neural Intake & Record Assistant</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         PAGE 1 - HOME
+    ========================== -->
+
+    <section id="homeScreen" class="page active">
+
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <div>
+                    <h2>NIRA</h2>
+                    <small>Neural Intake & Record Assistant</small>
+                </div>
+            </div>
+
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                AI SYSTEM ONLINE
+            </div>
+        </nav>
+
+
+        <main class="home-container">
+
+            <div class="home-content">
+
+                <p class="eyebrow">AI-ASSISTED HEALTHCARE INTAKE</p>
+
+                <h1>
+                    Your story.<br>
+                    <span>Understood.</span>
+                </h1>
+
+                <p class="hero-text">
+                    NIRA helps capture your symptoms, medical history and
+                    records before you meet your doctor.
+                </p>
+
+
+                <!-- Patient Login -->
+
+                <div class="login-card">
+
+                    <h3>Patient Information</h3>
+
+                    <p class="card-subtitle">
+                        Enter your details to begin your health journey.
+                    </p>
+
+                    <label>Patient Name</label>
+
+                    <input type="text" id="patientName" placeholder="Enter your full name">
+
+
+                    <label>Patient ID</label>
+
+                    <input type="text" id="patientId" placeholder="Enter your patient ID">
+
+
+                    <button class="primary-btn" onclick="patientLogin()">
+                        Continue
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Futuristic Orb -->
+
+            <div class="orb-container">
+
+                <div class="orb-ring ring-one"></div>
+                <div class="orb-ring ring-two"></div>
+
+                <div class="ai-orb">
+                    <div class="orb-core">N</div>
+                </div>
+
+                <div class="floating-card card-one">
+                    <span>◉</span>
+                    <div>
+                        <b>Patient First</b>
+                        <small>Guided intake</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-two">
+                    <span>⌁</span>
+                    <div>
+                        <b>Smart Records</b>
+                        <small>Organized instantly</small>
+                    </div>
+                </div>
+
+                <div class="floating-card card-three">
+                    <span>✦</span>
+                    <div>
+                        <b>AI Assisted</b>
+                        <small>Doctor-ready summary</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 2 - CONSENT
+    ========================== -->
+
+    <section id="consentScreen" class="page">
+
+        <div class="page-wrapper">
+
+            <div class="step-indicator">
+                <span class="active-step">01</span>
+                <span></span>
+                <span>02</span>
+                <span></span>
+                <span>03</span>
+                <span></span>
+                <span>04</span>
+            </div>
+
+
+            <div class="center-card">
+
+                <div class="big-icon">🔐</div>
+
+                <p class="eyebrow">CONSENT & PRIVACY</p>
+
+                <h1>Your information stays protected.</h1>
+
+                <p class="description">
+                    Before we begin, please review how NIRA handles
+                    your information.
+                </p>
+
+
+                <div class="privacy-grid">
+
+                    <div class="privacy-item">
+                        <div class="privacy-icon">🔒</div>
+                        <div>
+                            <h3>Private</h3>
+                            <p>Your health information is treated as confidential.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="privacy-item">
+                        <div class="privacy-icon">🛡️</div>
+                        <div>
+                            <h3>Secure</h3>
+                            <p>Your information is handled securely.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="privacy-item">
+                        <div class="privacy-icon">👤</div>
+                        <div>
+                            <h3>Patient Control</h3>
+                            <p>You remain in control of your information.</p>
+                        </div>
+                    </div>
+
+
+                    <div class="privacy-item">
+                        <div class="privacy-icon">✓</div>
+                        <div>
+                            <h3>Doctor Verification</h3>
+                            <p>NIRA does not replace professional medical review.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <label class="consent-box">
+
+                    <input type="checkbox" id="consentCheckbox">
+
+                    <span>
+                        I understand and consent to provide my information
+                        for this healthcare intake process.
+                    </span>
+
+                </label>
+
+
+                <button class="primary-btn full-btn" onclick="acceptConsent()">
+                    I Agree & Continue →
+                </button>
+
+
+                <button class="back-btn" onclick="goHome()">
+                    ← Back
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 3 - ASSESSMENT
+    ========================== -->
+
+    <section id="assessmentScreen" class="page">
+
+        <div class="page-wrapper">
+
+            <div class="top-bar">
+
+                <div>
+                    <p class="eyebrow">STEP 02</p>
+                    <h1>Tell NIRA what brings you here.</h1>
+                </div>
+
+                <div class="patient-badge">
+                    <span>Patient</span>
+                    <b id="assessmentPatientName">Patient</b>
+                </div>
+
+            </div>
+
+
+            <p class="description">
+                You can speak, type your symptoms, or upload your
+                existing medical records.
+            </p>
+
+
+            <div class="assessment-grid">
+
+
+                <!-- Voice -->
+
+                <div class="input-card">
+
+                    <div class="card-number">01</div>
+
+                    <div class="input-icon">🎙️</div>
+
+                    <h2>Speak to NIRA</h2>
+
+                    <p>
+                        Tell NIRA about your symptoms naturally using
+                        your voice.
+                    </p>
+
+                    <button class="secondary-btn" onclick="startAssessmentVoice()">
+                        🎙 Start Speaking
+                    </button>
+
+                    <small id="voiceStatus">
+                        Voice input available in supported browsers.
+                    </small>
+
+                </div>
+
+
+
+                <!-- Text -->
+
+                <div class="input-card">
+
+                    <div class="card-number">02</div>
+
+                    <div class="input-icon">⌨️</div>
+
+                    <h2>Type Symptoms</h2>
+
+                    <p>
+                        Prefer typing? Enter your symptoms and concerns
+                        directly.
+                    </p>
+
+                    <button class="secondary-btn" onclick="openAssessmentText()">
+                        ✎ Type Symptoms
+                    </button>
+
+                </div>
+
+
+
+                <!-- Upload -->
+
+                <div class="input-card">
+
+                    <div class="card-number">03</div>
+
+                    <div class="input-icon">📄</div>
+
+                    <h2>Upload Records</h2>
+
+                    <p>
+                        Upload prescriptions, reports or other medical
+                        documents.
+                    </p>
+
+                    <label class="upload-btn">
+
+                        📎 Choose Files
+
+                        <input type="file" id="medicalFiles" multiple accept=".pdf,.jpg,.jpeg,.png"
+                            onchange="handleFiles()">
+
+                    </label>
+
+                    <small>
+                        PDF, JPG, JPEG or PNG
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <!-- Uploaded files -->
+
+            <div class="uploaded-section">
+
+                <h3>Uploaded Records</h3>
+
+                <div id="fileList" class="file-list">
+                    <p class="empty-message">
+                        No records uploaded yet.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="bottom-actions">
+
+                <button class="back-btn" onclick="showPage('consentScreen')">
+                    ← Back
+                </button>
+
+                <button class="primary-btn" onclick="startProcessing()">
+                    Finish & Analyze →
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- Text Modal -->
+
+        <div id="textModal" class="modal">
+
+            <div class="modal-card">
+
+                <button class="close-btn" onclick="closeAssessmentText()">
+                    ×
+                </button>
+
+                <div class="input-icon">⌨️</div>
+
+                <h2>Tell NIRA about your symptoms</h2>
+
+                <p>
+                    Describe what you are experiencing in your own words.
+                </p>
+
+                <textarea id="symptomText" placeholder="Example: I have been experiencing..."></textarea>
+
+                <button class="primary-btn full-btn" onclick="submitAssessmentText()">
+                    Save Symptoms
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 4 - AI PROCESSING
+    ========================== -->
+
+    <section id="processingScreen" class="page">
+
+        <div class="page-wrapper processing-wrapper">
+
+            <p class="eyebrow">STEP 03</p>
+
+            <h1>NIRA is organizing your information.</h1>
+
+            <p class="description">
+                Your responses and uploaded records are being prepared
+                into a structured patient summary.
+            </p>
+
+
+            <div class="processing-orb">
+
+                <div class="processing-ring"></div>
+
+                <div class="processing-core">
+                    <span>N</span>
+                </div>
+
+            </div>
+
+
+            <div class="processing-list">
+
+                <div class="process-item" id="process1">
+
+                    <span class="process-icon">◌</span>
+
+                    <div>
+                        <b>Collecting patient information</b>
+                        <small>Preparing your basic details</small>
+                    </div>
+
+                    <span class="process-status">Waiting</span>
+
+                </div>
+
+
+                <div class="process-item" id="process2">
+
+                    <span class="process-icon">◌</span>
+
+                    <div>
+                        <b>Understanding symptoms</b>
+                        <small>Organizing your responses</small>
+                    </div>
+
+                    <span class="process-status">Waiting</span>
+
+                </div>
+
+
+                <div class="process-item" id="process3">
+
+                    <span class="process-icon">◌</span>
+
+                    <div>
+                        <b>Processing medical records</b>
+                        <small>Reviewing uploaded documents</small>
+                    </div>
+
+                    <span class="process-status">Waiting</span>
+
+                </div>
+
+
+                <div class="process-item" id="process4">
+
+                    <span class="process-icon">◌</span>
+
+                    <div>
+                        <b>Preparing patient summary</b>
+                        <small>Creating a doctor-ready overview</small>
+                    </div>
+
+                    <span class="process-status">Waiting</span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI Results -->
+
+            <div id="aiResults" class="ai-results">
+
+                <div class="result-header">
+                    <span class="success-icon">✓</span>
+
+                    <div>
+                        <h2>Information organized</h2>
+                        <p>NIRA has prepared your intake information.</p>
+                    </div>
+                </div>
+
+
+                <div class="result-patient">
+
+                    <div>
+                        <small>Patient Name</small>
+                        <b id="resultPatientName">---</b>
+                    </div>
+
+                    <div>
+                        <small>Patient ID</small>
+                        <b id="resultPatientId">---</b>
+                    </div>
+
+                </div>
+
+
+                <div class="result-box">
+
+                    <h3>Information Received</h3>
+
+                    <p id="resultMessage">
+                        Your information has been organized.
+                    </p>
+
+                </div>
+
+
+                <div class="important-note">
+
+                    <b>Important:</b>
+
+                    NIRA is an intake and organization assistant.
+                    It does not provide a final diagnosis or replace
+                    a qualified healthcare professional.
+
+                </div>
+
+
+                <button class="primary-btn full-btn" onclick="showSummary()">
+                    View Patient Summary →
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PAGE 5 - SUMMARY
+    ========================== -->
+
+    <section id="summaryScreen" class="page">
+
+        <div class="page-wrapper">
+
+            <div class="summary-header">
+
+                <div>
+                    <p class="eyebrow">STEP 04 • PATIENT SUMMARY</p>
+
+                    <h1>Your NIRA Summary</h1>
+
+                    <p class="description">
+                        A structured overview to help your healthcare
+                        professional understand your case.
+                    </p>
+                </div>
+
+
+                <div class="nira-badge">
+                    ✦ NIRA
+                </div>
+
+            </div>
+
+
+
+            <!-- Patient details -->
+
+            <div class="summary-card">
+
+                <div class="summary-card-title">
+
+                    <span>👤</span>
+
+                    <div>
+                        <h2>Patient Details</h2>
+                        <p>Basic identification information</p>
+                    </div>
+
+                </div>
+
+
+                <div class="details-grid">
+
+                    <div>
+                        <small>Patient Name</small>
+                        <strong id="summaryPatientName">---</strong>
+                    </div>
+
+                    <div>
+                        <small>Patient ID</small>
+                        <strong id="summaryPatientId">---</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Symptoms -->
+
+            <div class="summary-card">
+
+                <div class="summary-card-title">
+
+                    <span>🩺</span>
+
+                    <div>
+                        <h2>Symptoms & Concerns</h2>
+                        <p>Information provided during intake</p>
+                    </div>
+
+                </div>
+
+
+                <div id="summarySymptoms" class="summary-content">
+                    No symptoms were entered.
+                </div>
+
+            </div>
+
+
+
+            <!-- Records -->
+
+            <div class="summary-card">
+
+                <div class="summary-card-title">
+
+                    <span>📄</span>
+
+                    <div>
+                        <h2>Medical Records</h2>
+                        <p>Documents provided by the patient</p>
+                    </div>
+
+                </div>
+
+
+                <div id="summaryDocuments" class="summary-content">
+                    No documents uploaded.
+                </div>
+
+            </div>
+
+
+
+            <!-- Medicines -->
+
+            <div class="summary-card">
+
+                <div class="summary-card-title">
+
+                    <span>💊</span>
+
+                    <div>
+                        <h2>Medicines Identified</h2>
+                        <p>To be verified by a healthcare professional</p>
+                    </div>
+
+                </div>
+
+
+                <div class="medicine-note">
+
+                    Medicine information, if present in uploaded
+                    records, should be reviewed and confirmed by
+                    a qualified healthcare professional.
+
+                </div>
+
+
+                <div id="medicineList" class="medicine-list">
+
+                    <div class="medicine-placeholder">
+                        No medicine information identified in this prototype.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Follow up -->
+
+            <div class="summary-card followup-card">
+
+                <div class="summary-card-title">
+
+                    <span>📅</span>
+
+                    <div>
+                        <h2>Next Steps & Follow-up</h2>
+                        <p>What happens next</p>
+                    </div>
+
+                </div>
+
+
+                <div class="next-step">
+
+                    <span>01</span>
+
+                    <p>
+                        Review the generated summary with your
+                        healthcare professional.
+                    </p>
+
+                </div>
+
+
+                <div class="next-step">
+
+                    <span>02</span>
+
+                    <p>
+                        Your doctor can verify, edit or add information
+                        before consultation.
+                    </p>
+
+                </div>
+
+
+                <div class="next-step">
+
+                    <span>03</span>
+
+                    <p>
+                        Follow-up recommendations should be provided
+                        by your healthcare professional.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Thank you -->
+
+            <div class="thank-you">
+
+                <div class="thank-icon">✦</div>
+
+                <h2>Thank you for trusting NIRA.</h2>
+
+                <p>
+                    Your story has been organized to make your
+                    healthcare conversation easier.
+                </p>
+
+            </div>
+
+
+            <button class="primary-btn full-btn" onclick="startNewPatient()">
+                Start New Patient
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
